@@ -9,13 +9,13 @@ def enhetsomvandlare(start_enhet):
                 mängden = int(mängd)*1000
             return f'{mängden} gram'
         #omvandlar mg till gram
-        elif start_enhet[i+1].lower() == "m" and start_enhet[i+1].lower() == "g":
+        elif start_enhet[i].lower() == "m" and start_enhet[i+1].lower() == "g":
             for m in range(len(start_enhet)-2):
                 mängd += start_enhet[m]
                 mängden = int(mängd)/1000
             return f'{mängden} gram'
         #omvandlar hg till gram
-        elif start_enhet[i+1].lower() == "h" and start_enhet[i+1].lower() == "g":
+        elif start_enhet[i].lower() == "h" and start_enhet[i+1].lower() == "g":
             for m in range(len(start_enhet)-2):
                 mängd += start_enhet[m]
                 mängden = int(mängd)*100
