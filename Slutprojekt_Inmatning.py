@@ -1,7 +1,9 @@
-recept = {"potatismos" : {"smör" : "100g", "potatis" : "1kg"},
-          "smoothie" : {"banan" : "100g"}}
+from Enhetsomvandlare import enhetsomvandlare
 
-ingredienser = {"potatis" : "1kg", "smör" : "100g"}
+recept = {"potatismos" : {"smör" : 100, "potatis" : 1000},
+          "smoothie" : {"banan" : 100}}
+
+ingredienser = {}
 def inmatning():
     totalt = input("Hur många ingredienser har du? ")
     if totalt.isnumeric() == False:
@@ -22,16 +24,17 @@ def inmatning():
 
 
 def recept_val():
-    lista = []
     x = 0
     for value in recept:
-        lista1 = recept[value]
-        if all(elim in ingredienser for elim in recept[value]):
-            if ingredienser >= lista1[value]:
-                print("Du kan göra", value)
-                x = 1
+        for ingrediens in recept[value]:
+            for råvara in ingredienser:
+                if råvara == ingrediens:
+                    if enhetsomvandlare(ingredienser[råvara]) >= recept[value][ingrediens]:
+                        print("Du kan göra", value)
+                        x = 1
     if x != 1:
         print("Du har inte tillräckligt med ingredienser för att laga något")
         inmatning()
     return None
-recept_val()
+
+inmatning()
