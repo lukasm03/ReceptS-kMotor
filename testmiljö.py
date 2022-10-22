@@ -20,7 +20,7 @@ def inmatning():
             inmatning()
         else:
             mängd = input(f"Ange mängd av ingrediens nr {n+1}: ")
-            if mängd.isnumeric() == False:
+            if mängd.isnumeric() == True:
                 print("Du måste ange mängd med nummer")
                 inmatning()
             else:
@@ -44,12 +44,14 @@ def recept_val():
                     if ingrediens == receptkonponent:
                         x = enhetsomvandlare(ingredienser[ingrediens])
                         y = kokbok[recept][receptkonponent]
-                        if  x >= y: 
+                        if  x >= y: #bugg här om 1 ingrediens banan 1g
                             antal_portioner.append(math.floor(x/y))
                             mängdkontroll += 1
                             
             if mängdkontroll == len(kokbok[recept]):
                 antal_portioner.sort()
                 print(f"Du kan laga {recept} för {antal_portioner[0]} personer")
+            else:
+                print(f"Inget recept matchar de ingredienser du angav")
                 
 inmatning()
