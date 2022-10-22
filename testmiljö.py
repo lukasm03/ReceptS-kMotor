@@ -44,7 +44,7 @@ def recept_val():
                     if ingrediens == receptkonponent:
                         x = enhetsomvandlare(ingredienser[ingrediens])
                         y = kokbok[recept][receptkonponent]
-                        if  x >= y: #bugg här om 1 ingrediens banan 1g
+                        if  x >= y: 
                             antal_portioner.append(math.floor(x/y))
                             mängdkontroll += 1
                             
