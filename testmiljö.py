@@ -46,8 +46,7 @@ def recept_val():
                         y = kokbok[recept][receptkomponent]
                         if  x >= y: 
                             antal_portioner.append(math.floor(x/y))
-                            mängdkontroll += 1
-                            
+                            mängdkontroll += 1              
             if mängdkontroll == len(kokbok[recept]):
                 antal_portioner.sort()
                 print(f"Du kan laga {recept} för {antal_portioner[0]} personer")
