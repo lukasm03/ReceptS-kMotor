@@ -16,9 +16,10 @@ def inmatning():
     while n < int(totalt):
         ingrediens = input(f"Ange ingrediens nr {n+1}: ")
         if ingrediens.isnumeric(): 
-            print("Du måste ange ingrediensen med bokstäver")
+            print("Du måste ange ingrediensen med bokstäver ")
             ingrediens = input(f"Ange ingrediens nr {n+1}: ")
         else:
+            #kan lägga in enhetsomvandlaren här om man vill
             mängd = input(f"Ange mängd av ingrediens nr {n+1}: ")
             while mängd.isnumeric() == True:
                 print("Du måste ange mängd med nummer")
@@ -26,12 +27,18 @@ def inmatning():
             else:
                 ingredienser[ingrediens.lower()] = mängd.lower()
                 n +=1
-    svar = input("Vill du lägga till fler ingredienser y/n? ")
-    if svar.lower() == "y":
-        inmatning()
-    else:
-        #print("Du valde", ingredienser)
-        recept_val()
+    svar = input("Vill du lägga till fler ingredienser y/n?")
+    while svar.lower() != "y" or svar.lower() != "n":
+        if svar.lower() == "y":
+            inmatning()
+            break
+        elif svar.lower() == "n":
+            recept_val()
+            break
+        print("Du måste ange antingen y eller n")
+        #kanske lägga till annat meddelande om man vill lägga till fler ingredienser
+        svar = input("Vill du lägga till fler ingredienser y/n? ")
+
 
 
 def recept_val():
@@ -49,8 +56,10 @@ def recept_val():
                             mängdkontroll += 1              
             if mängdkontroll == len(kokbok[recept]):
                 antal_portioner.sort()
-                print(f"Du kan laga {recept} för {antal_portioner[0]} personer")
+                print()
+                print(f"Du kan laga {recept} för {antal_portioner[0]} personer.")
+                print(f"För detta recept krävs det {receptkomponent}.")
             else:
-                print("Inget recept matchar de ingredienser du angav")
+                print("Inget recept matchar de ingredienser du angav.")
                 
 inmatning()
