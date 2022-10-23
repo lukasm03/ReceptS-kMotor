@@ -9,9 +9,9 @@ ingredienser = {}
 
 def inmatning():
     totalt = input("Hur många ingredienser har du? ")
-    if totalt.isnumeric() == False:
+    while totalt.isnumeric() == False:
         print("Du måste ange antalet i siffror")
-        inmatning()
+        totalt = input("Hur många ingredienser har du? ")
     n = 0
     while n < int(totalt):
         råvara = input(f"Ange ingrediens nr {n+1}: ")
