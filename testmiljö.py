@@ -17,14 +17,14 @@ def inmatning():
         ingrediens = input(f"Ange ingrediens nr {n+1}: ")
         if ingrediens.isnumeric(): 
             print("Du måste ange ingrediensen med bokstäver")
-            inmatning()
+            ingrediens = input(f"Ange ingrediens nr {n+1}: ")
         else:
             mängd = input(f"Ange mängd av ingrediens nr {n+1}: ")
-            if mängd.isnumeric() == True:
+            while mängd.isnumeric() == True:
                 print("Du måste ange mängd med nummer")
-                inmatning()
+                mängd = input(f"Ange mängd av ingrediens nr {n+1}: ")
             else:
-                ingredienser[råvara.lower()] = mängd.lower()
+                ingredienser[ingrediens.lower()] = mängd.lower()
                 n +=1
     svar = input("Vill du lägga till fler ingredienser y/n? ")
     if svar.lower() == "y":
@@ -39,7 +39,7 @@ def recept_val():
         if all(elim in ingredienser for elim in kokbok[recept]):
             mängdkontroll = 0
             antal_portioner = []
-            for receptkomponent in kokbok[recept]:  
+            for receptkomponent in kokbok[recept]:
                 for ingrediens in ingredienser:
                     if ingrediens == receptkomponent:
                         x = enhetsomvandlare(ingredienser[ingrediens])
@@ -52,6 +52,6 @@ def recept_val():
                 antal_portioner.sort()
                 print(f"Du kan laga {recept} för {antal_portioner[0]} personer")
             else:
-                print(f"Inget recept matchar de ingredienser du angav")
+                print("Inget recept matchar de ingredienser du angav")
                 
 inmatning()
