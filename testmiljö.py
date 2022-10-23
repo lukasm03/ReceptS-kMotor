@@ -14,9 +14,9 @@ def inmatning():
         totalt = input("Hur många ingredienser har du? ")
     n = 0
     while n < int(totalt):
-        råvara = input(f"Ange ingrediens nr {n+1}: ")
-        if råvara.isnumeric(): 
-            print("Du måste ange råvaror med bokstäver")
+        ingrediens = input(f"Ange ingrediens nr {n+1}: ")
+        if ingrediens.isnumeric(): 
+            print("Du måste ange ingrediensen med bokstäver")
             inmatning()
         else:
             mängd = input(f"Ange mängd av ingrediens nr {n+1}: ")
@@ -30,7 +30,7 @@ def inmatning():
     if svar.lower() == "y":
         inmatning()
     else:
-        print("Du valde", ingredienser)
+        #print("Du valde", ingredienser)
         recept_val()
 
 
@@ -39,11 +39,11 @@ def recept_val():
         if all(elim in ingredienser for elim in kokbok[recept]):
             mängdkontroll = 0
             antal_portioner = []
-            for receptkonponent in kokbok[recept]:  
+            for receptkomponent in kokbok[recept]:  
                 for ingrediens in ingredienser:
-                    if ingrediens == receptkonponent:
+                    if ingrediens == receptkomponent:
                         x = enhetsomvandlare(ingredienser[ingrediens])
-                        y = kokbok[recept][receptkonponent]
+                        y = kokbok[recept][receptkomponent]
                         if  x >= y: 
                             antal_portioner.append(math.floor(x/y))
                             mängdkontroll += 1
