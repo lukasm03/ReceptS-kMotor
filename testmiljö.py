@@ -57,8 +57,9 @@ def recept_val():
             if mängdkontroll == len(kokbok[recept]):
                 antal_portioner.sort()
                 print()
-                print(f"Du kan laga {recept} för {antal_portioner[0]} personer.")
-                print(f"För detta recept krävs det {receptkomponent}.")
+                print(f'Du kan laga {recept} för {antal_portioner[0]} personer.')
+                #printar bara en ingredisen
+                print(f'För detta recept krävs det {", ".join(str(x) for x in kokbok[recept])}.')
             else:
                 print("Inget recept matchar de ingredienser du angav.")
                 
