@@ -55,12 +55,23 @@ def recept_val():
                             antal_portioner.append(math.floor(x/y))
                             mängdkontroll += 1              
             if mängdkontroll == len(kokbok[recept]):
+                receptdelar = {}
                 antal_portioner.sort()
+                for x in kokbok[recept]: 
+                    print(receptkomponent)
+                    print(x)
+                    for y in kokbok[recept][x]:
+                        receptdelar[x] = y
+                print(receptdelar)
+
+
                 print()
                 print(f'Du kan laga {recept} för {antal_portioner[0]} personer.')
                 #printar bara en ingredisen
-                print(f'För detta recept krävs det {", ".join(str(x) for x in kokbok[recept])}.')
+                print(f'För detta recept krävs det {"hej"}.')
+                print()
             else:
                 print("Inget recept matchar de ingredienser du angav.")
+                print()
                 
 inmatning()

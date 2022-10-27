@@ -23,7 +23,7 @@ def enhetsomvandlare(start_enhet):
         elif start_enhet[i].lower() == "g":
             for m in range(len(start_enhet)-1):
                 mängd += start_enhet[m]
-            return int(mängden)
+            return int(mängd)
         
         
 
