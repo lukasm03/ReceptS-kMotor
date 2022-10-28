@@ -5,7 +5,7 @@ kokbok = {"potatismos" : {"smör" : 100, "potatis" : 1000},
           "smoothie" : {"banan" : 100},
           "korv med bröd" : {"korv" : 500, "bröd" : 200}}
 
-ingredienser = {"smör": "3kg", "potatis": "2kg", "korv": "300g", "banan": "1kg"}
+ingredienser = {}
 
 def inmatning():
     totalt = input("Hur många ingredienser har du? ")
@@ -70,4 +70,4 @@ def recept_val():
                 print("Inget recept matchar de ingredienser du angav.")
                 print()
                 
-recept_val()
+inmatning()
