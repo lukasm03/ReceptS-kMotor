@@ -5,7 +5,7 @@ kokbok = {"potatismos" : {"smör" : 100, "potatis" : 1000},
           "smoothie" : {"banan" : 100},
           "korv med bröd" : {"korv" : 500, "bröd" : 200}}
 
-ingredienser = {"smör": "3kg", "potatis": "2kg"}
+ingredienser = {"smör": "3kg", "potatis": "2kg", "korv": "300g", "banan": "1kg"}
 
 def inmatning():
     totalt = input("Hur många ingredienser har du? ")
@@ -56,6 +56,7 @@ def recept_val():
                             mängdkontroll += 1              
             if mängdkontroll == len(kokbok[recept]):
                 antal_portioner.sort()
+                #skapa strängen som anger hur mycket av vilka ingredisenser som krävs
                 antal_mängd = ""
                 for x in kokbok[recept]:
                     antal_mängd += f'{(kokbok[recept][x])*antal_portioner[0]}g {x} och ' 
@@ -63,7 +64,6 @@ def recept_val():
                     print(f'Du kan laga {recept} för {antal_portioner[0]} person.')
                 else:
                     print(f'Du kan laga {recept} för {antal_portioner[0]} personer.')
-                #printar bara en ingredisen
                 print(f'För detta recept krävs det {antal_mängd[:-5]}.')
                 print()
             else:
